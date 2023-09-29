@@ -1,0 +1,95 @@
+//Заголовки, общие БЭМ блоки и т.д.
+
+.title-decor {
+	position: relative;
+	padding-bottom: rem(16);
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: rem(30);
+		height: rem(2);
+		background: url(@img/common/text-decor.svg) no-repeat;
+		background-size: 100% 100%;
+
+		@media (max-width: $mobile) {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&--center {
+		&::before {
+			width: rem(50);
+			left: 50%;
+			transform: translateX(-50%);
+			transition: all 0.3s ease;
+		}
+	}
+}
+
+section {
+	&:hover {
+		.title-decor--center {
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.section-gutter {
+	padding-bottom: rem(160);
+	@media (max-width: $mobile) {
+		padding-bottom: rem(96);
+	}
+	@media (max-width: $mobileSmall) {
+		padding-bottom: rem(80);
+	}
+}
+
+.section-title {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	color: cl('white');
+	font-size: rem(40);
+	@media (max-width: $mobile) {
+		font-size: rem(32);
+	}
+	@media (max-width: $mobileSmall) {
+		font-size: rem(24);
+	}
+	font-weight: 700;
+	line-height: normal;
+
+	&:not(:last-child) {
+		margin-bottom: rem(64);
+		@media (max-width: $mobileSmall) {
+			margin-bottom: rem(40);
+		}
+	}
+}
+
+.no-scroll-bar {
+	&::-webkit-scrollbar {
+		width: 0;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: transparent;
+	}
+}
+
+.card-hover {
+	transition: all 0.3s ease;
+	&:hover {
+		box-shadow: -8px -4px 20px 0px cl('black');
+	}
+}

@@ -1,0 +1,63 @@
+//<BUTTONS (a.btn+tab)>
+// Сниппет (HTML): btn
+
+.button {
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: rem(14) rem(16);
+
+	&__inner {
+		position: relative;
+		z-index: 2;
+		color: cl('white');
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: normal;
+	}
+
+	&__background {
+		position: absolute;
+		inset: 0;
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&--dark {
+		.button__background {
+			svg {
+				path {
+					fill: url(#dark);
+				}
+			}
+		}
+	}
+
+	&--light {
+		.button__background {
+			svg {
+				path {
+					fill: url(#light);
+				}
+			}
+		}
+	}
+
+	&:hover {
+		.button__background {
+			svg {
+				path {
+					fill: url(#hover);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,199 @@
+// <SELECT>
+// Сниппет (HTML): sel
+.select {
+	min-width: 0;
+	position: relative;
+
+	&:hover {
+		.select__background {
+			svg {
+				stroke: cl('cyan-greenish');
+			}
+		}
+	}
+
+	// .select__body
+	&__body {
+		position: relative;
+	}
+	// .select__title
+	&__title {
+		cursor: pointer;
+		width: 100%;
+		padding: rem(15) rem(20);
+		background-color: transparent;
+	}
+	// .select__value
+	&__value {
+		display: flex;
+		gap: rem(16);
+		min-width: 0;
+		align-items: center;
+	}
+
+	&__icon {
+		width: rem(16);
+		height: rem(16);
+
+		svg {
+			transition: all 0.3s ease;
+		}
+
+		._select-open & {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__background {
+		position: absolute;
+		inset: 0;
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s ease;
+			stroke: #173352;
+		}
+	}
+
+	// .select__content
+	&__content {
+		text-align: left;
+		flex: 1 1 auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		font-family: Inter, sans-serif;
+		color: cl('grey-bluish-dark');
+		font-size: rem(14);
+		font-weight: 400;
+		line-height: normal;
+		background-color: transparent;
+	}
+	// .select__text
+	&__text {
+		flex: 1 1 auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	&__input {
+		width: 100%;
+		background-color: transparent;
+		height: 100%;
+	}
+	// .select__options
+	&__options {
+		position: absolute;
+		top: calc(100% - rem(1));
+		min-width: 100%;
+		left: 0;
+		background-color: transparent;
+		padding: rem(15) rem(20);
+	}
+
+	&__options-background {
+		position: absolute;
+		z-index: -1;
+		inset: 0;
+		background-color: cl('background');
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s ease;
+			stroke: #173352;
+		}
+	}
+
+	// .select__scroll
+	&__scroll {
+		overflow-y: auto;
+		overflow-x: hidden;
+		// Максимальная высота
+		max-height: rem(200);
+		// Стили полосы прокрутки
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: cl('cyan-blue'); /* цвет бегунка */
+			border-radius: 16px; /* округлось бегунка */
+		}
+	}
+	// .select__option
+	&__option {
+		font-family: Iner, sans-serif;
+		color: cl('grey-bluish');
+
+		width: 100%;
+		text-align: left;
+		cursor: pointer;
+		padding: 5px 15px;
+
+		&._select-selected {
+			background-color: #eee;
+		}
+
+		&:hover {
+			color: cl('cyan-greenish');
+		}
+	}
+
+	// Конструкция дополнительных данных
+	&__row {
+		display: inline-flex;
+		align-items: center;
+	}
+	&__asset {
+	}
+	&__text {
+	}
+
+	&_show-top {
+		.select__options {
+			top: auto;
+			bottom: calc(100% - rem(1));
+			border: 1px solid #d9d9d9;
+			border-bottom: 0;
+			border-radius: 4px 4px 0 0;
+			padding: 5px 0px 10px 0px;
+		}
+	}
+
+	// Стили селектору
+	&._select-open {
+	}
+	&._select-disabled {
+	}
+	&._select-active {
+	}
+	&._select-focus {
+	}
+	&._select-multiple {
+	}
+	&._select-checkbox {
+	}
+}
+
+// Тег
+._select-tag {
+	cursor: pointer;
+}
