@@ -151,7 +151,7 @@ function init() {
 		scroller: '[data-scroll-container]',
 		animation: t8,
 		scrub: 1,
-	})
+	});
 
 	ScrollTrigger.create({
 		trigger: '.news',
@@ -159,7 +159,7 @@ function init() {
 		scroller: '[data-scroll-container]',
 		animation: t9,
 		scrub: 1,
-	})
+	});
 
 	const t10 = gsap.from('.channel', {
 		scale: 0.6,
@@ -173,5 +173,5 @@ function init() {
 		scroller: '[data-scroll-container]',
 		animation: t10,
 		scrub: 1,
-	})
+	});
 }

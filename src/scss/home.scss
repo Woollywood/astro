@@ -604,6 +604,10 @@
 				margin-bottom: rem(10);
 			}
 		}
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	&__title {
@@ -647,6 +651,10 @@
 		font-size: rem(14);
 		font-weight: 500;
 		line-height: normal;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	&__time-sep {

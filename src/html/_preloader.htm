@@ -5,134 +5,235 @@
 		touch-action: none;
 		overscroll-behavior: none;
 	}
+
 	.loading body {
 		opacity: 0;
 		visibility: hidden;
 	}
+
 	.loaded body {
-		transition: opacity 0.5s ease 0s;
+		transition: opacity 0.6s ease 0s;
 		opacity: 1;
 		visibility: visible;
 	}
 </style>
-<div id="fls-preloader">
-	<!--Документация: https://template.fls.guru/template-docs/modul-preloader.html-->
-	<!--Стили для прелоадера-->
+<div class="preloader" id="preloader">
 	<style>
 		* {
 			padding: 0px;
 			margin: 0px;
 			border: 0px;
 		}
+
 		*,
 		*:before,
 		*:after {
 			box-sizing: border-box;
 		}
+
 		html {
 			overflow: hidden;
 			touch-action: none;
 			overscroll-behavior: none;
 		}
-		/*Главный блок*/
-		.fls-preloader {
-			pointer-events: none;
-			z-index: -1;
+
+		.preloader {
 			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
+			z-index: 999;
+			inset: 0;
+			pointer-events: none;
+
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			transition: all 0.6s ease;
 		}
-		/*Блок с элементами*/
-		.fls-preloader__body {
-			padding: 0.93rem;
-			max-width: 31.25rem;
+
+		.blinder-container {
+			position: fixed;
+			inset: 0;
 			display: flex;
-			flex-direction: column;
 		}
-		/*Блок со счетчиком*/
-		.fls-preloader__counter {
-			font-size: 10rem;
+
+		.blinder {
+			background-color: #040d17;
+			height: 100vh;
+			flex: 1;
+			transform-origin: top;
 		}
-		/*Прогрессбар*/
-		.fls-preloader__line {
-		}
-		/*Линия прогрессбара*/
-		.fls-preloader__line span {
+
+		.lds-roller {
 			display: inline-block;
-			transition: width 0.2s ease;
-			height: 0.8rem;
-			background-color: #7a956b;
+			position: relative;
+			width: 80px;
+			height: 80px;
 		}
-	</style>
-	<!--Скрипт прелоадера-->
-	<script>
-		function preloader() {
-			const preloaderImages = document.querySelector('[data-preloader]')
-				? document.querySelectorAll('[data-preloader] img')
-				: document.querySelectorAll('img');
-			const preloaderContainer = document.querySelector('#fls-preloader');
-			if (preloaderImages.length) {
-				const preloaderTemplate = `
-					<div class="fls-preloader">
-						<div class="fls-preloader__body">
-							<div class="fls-preloader__counter">0%</div>
-							<div class="fls-preloader__line"><span></span></div>
-						</div>
-					</div>`;
-				document.querySelector('html').insertAdjacentHTML('beforeend', preloaderTemplate);
-
-				const preloader = document.querySelector('.fls-preloader'),
-					showPecentLoad = document.querySelector('.fls-preloader__counter'),
-					showLineLoad = document.querySelector('.fls-preloader__line span'),
-					htmlDocument = document.documentElement;
-
-				let imagesLoadedCount = (counter = progress = 0);
-
-				htmlDocument.classList.add('loading');
-				htmlDocument.classList.add('lock');
-
-				preloaderImages.forEach((preloaderImage) => {
-					const imgClone = document.createElement('img');
-					if (imgClone) {
-						imgClone.onload = imageLoaded;
-						imgClone.onerror = imageLoaded;
-						preloaderImage.dataset.src
-							? (imgClone.src = preloaderImage.dataset.src)
-							: (imgClone.src = preloaderImage.src);
-					}
-				});
-				function setValueProgress(progress) {
-					showPecentLoad ? (showPecentLoad.innerText = `${progress}%`) : null;
-					showLineLoad ? (showLineLoad.style.width = `${progress}%`) : null;
-				}
-				showPecentLoad ? setValueProgress(progress) : null;
-
-				function imageLoaded() {
-					imagesLoadedCount++;
-					progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
-					const intervalId = setInterval(() => {
-						counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
-						counter >= 100 ? addLoadedClass() : null;
-					}, 10);
-				}
-				function addLoadedClass() {
-					htmlDocument.classList.add('loaded');
-					htmlDocument.classList.remove('lock');
-					htmlDocument.classList.remove('loading');
-					setInterval(() => {
-						preloader.remove();
-						preloaderContainer.remove();
-					}, 500);
-				}
-			} else {
-				preloaderContainer.remove();
+		.lds-roller div {
+			animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+			transform-origin: 40px 40px;
+		}
+		.lds-roller div:after {
+			content: ' ';
+			display: block;
+			position: absolute;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: #fff;
+			margin: -4px 0 0 -4px;
+		}
+		.lds-roller div:nth-child(1) {
+			animation-delay: -0.036s;
+		}
+		.lds-roller div:nth-child(1):after {
+			top: 63px;
+			left: 63px;
+		}
+		.lds-roller div:nth-child(2) {
+			animation-delay: -0.072s;
+		}
+		.lds-roller div:nth-child(2):after {
+			top: 68px;
+			left: 56px;
+		}
+		.lds-roller div:nth-child(3) {
+			animation-delay: -0.108s;
+		}
+		.lds-roller div:nth-child(3):after {
+			top: 71px;
+			left: 48px;
+		}
+		.lds-roller div:nth-child(4) {
+			animation-delay: -0.144s;
+		}
+		.lds-roller div:nth-child(4):after {
+			top: 72px;
+			left: 40px;
+		}
+		.lds-roller div:nth-child(5) {
+			animation-delay: -0.18s;
+		}
+		.lds-roller div:nth-child(5):after {
+			top: 71px;
+			left: 32px;
+		}
+		.lds-roller div:nth-child(6) {
+			animation-delay: -0.216s;
+		}
+		.lds-roller div:nth-child(6):after {
+			top: 68px;
+			left: 24px;
+		}
+		.lds-roller div:nth-child(7) {
+			animation-delay: -0.252s;
+		}
+		.lds-roller div:nth-child(7):after {
+			top: 63px;
+			left: 17px;
+		}
+		.lds-roller div:nth-child(8) {
+			animation-delay: -0.288s;
+		}
+		.lds-roller div:nth-child(8):after {
+			top: 56px;
+			left: 12px;
+		}
+		@keyframes lds-roller {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
 			}
 		}
-		preloader();
+	</style>
+
+	<div class="blinder-container">
+		<div class="blinder"></div>
+		<div class="blinder"></div>
+		<div class="blinder"></div>
+		<div class="blinder"></div>
+		<div class="blinder"></div>
+	</div>
+
+	<div class="lds-roller">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+
+	<script>
+		const preloader = document.getElementById('preloader');
+		init(preloader);
+
+		function init(preloader) {
+			let htmlDocument = document.documentElement;
+			htmlDocument.append(preloader);
+
+			htmlDocument.classList.add('loading');
+			htmlDocument.classList.add('lock');
+
+			let scripts = [];
+
+			loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js')
+				.then((script) => {
+					scripts.push(script);
+					return loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js');
+				})
+				.then((script) => {
+					scripts.push(script);
+				})
+				.catch((error) => console.log(error));
+
+			document.addEventListener('DOMContentLoaded', (e) => {
+				setTimeout(() => {
+					destroy(preloader, scripts);
+				}, 600);
+			});
+		}
+
+		function destroy(preloader, scripts) {
+			let htmlDocument = document.documentElement;
+
+			htmlDocument.classList.remove('loading');
+			htmlDocument.classList.remove('lock');
+			htmlDocument.classList.add('loaded');
+
+			gsap.to('.lds-roller', {
+				opacity: 0,
+			});
+
+			gsap.to('.blinder', {
+				scaleY: 0,
+				stagger: 0.2,
+				ease: 'power3.out',
+				onComplete: (e) => {
+						preloader.remove();
+						clearScriptTags(scripts);
+				},
+			});
+		}
+
+		function loadScript(url) {
+			return new Promise((resolve, reject) => {
+				let script = document.createElement('script');
+				script.src = url;
+				script.onload = () => resolve(script);
+				script.onerror = () => reject(new Error('cannot load script'));
+				document.body.append(script);
+			});
+		}
+
+		function clearScriptTags(scripts) {
+			for (const script of scripts) {
+				script.remove();
+			}
+		}
 	</script>
 </div>

@@ -239,7 +239,7 @@
 						<div class="contact__body">
 							<h2 class="contact__title section-title title-decor title-decor--center">Contact Us</h2>
 							<div class="contact__content">
-								<div class="contact__left">
+								<div class="contact__left" data-scroll data-scroll-speed="2.6">
 									<div class="contact__location">
 										<div class="contact__location-field">
 											<div class="contact__location-icon">
@@ -282,7 +282,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="contact__right">
+								<div class="contact__right" data-scroll data-scroll-speed="0.8">
 									<form class="contact__form" action="#">
 										<div class="contact__input-group">
 											<div class="contact__input-wrap input-wrap">
@@ -342,7 +342,7 @@
 												<img src="@img/our-shop/01.jpg" alt="card" />
 											</div>
 											<div class="shop-card__info">
-												<div class="shop-card__sub-title">NEW</div>
+												<div class="shop-card__sub-title" data-link="/shop">NEW</div>
 												<div class="shop-card__title">Ultimate gaming PC</div>
 												<div class="shop-card__price">$1099</div>
 											</div>
@@ -356,7 +356,7 @@
 												<img src="@img/our-shop/02.jpg" alt="card" />
 											</div>
 											<div class="shop-card__info">
-												<div class="shop-card__sub-title">Popular</div>
+												<div class="shop-card__sub-title" data-link="/shop">Popular</div>
 												<div class="shop-card__title">Xbox gaming controller</div>
 												<div class="shop-card__price">$599</div>
 											</div>
@@ -370,7 +370,7 @@
 												<img src="@img/our-shop/03.jpg" alt="card" />
 											</div>
 											<div class="shop-card__info">
-												<div class="shop-card__sub-title">NEW</div>
+												<div class="shop-card__sub-title" data-link="/shop">NEW</div>
 												<div class="shop-card__title">Mechanical gaming keyboard</div>
 												<div class="shop-card__price">$399</div>
 											</div>
@@ -384,7 +384,7 @@
 												<img src="@img/our-shop/04.jpg" alt="card" />
 											</div>
 											<div class="shop-card__info">
-												<div class="shop-card__sub-title">Popular</div>
+												<div class="shop-card__sub-title" data-link="/shop">Popular</div>
 												<div class="shop-card__title">Gaming headphone</div>
 												<div class="shop-card__price">$599</div>
 											</div>
@@ -414,9 +414,9 @@
 											</div>
 											<div class="shop-card__info">
 												<div class="shop-card__time">
-													<div class="shop-card__time-type">NEW</div>
+													<div class="shop-card__time-type" data-link="/shop">NEW</div>
 													<div class="shop-card__time-sep"></div>
-													<div class="shop-card__time-value">Aug 25, 2023</div>
+													<div class="shop-card__time-value" data-link="/post">Aug 25, 2023</div>
 												</div>
 												<div class="shop-card__name">
 													Pro tips: How to improve your aim and reflexes in eSports
@@ -433,9 +433,9 @@
 											</div>
 											<div class="shop-card__info">
 												<div class="shop-card__time">
-													<div class="shop-card__time-type">NEW</div>
+													<div class="shop-card__time-type" data-link="/shop">NEW</div>
 													<div class="shop-card__time-sep"></div>
-													<div class="shop-card__time-value">Aug 25, 2023</div>
+													<div class="shop-card__time-value" data-link="/post">Aug 25, 2023</div>
 												</div>
 												<div class="shop-card__name">
 													Pro tips: How to improve your aim and reflexes in eSports
@@ -452,9 +452,9 @@
 											</div>
 											<div class="shop-card__info">
 												<div class="shop-card__time">
-													<div class="shop-card__time-type">NEW</div>
+													<div class="shop-card__time-type" data-link="/shop">NEW</div>
 													<div class="shop-card__time-sep"></div>
-													<div class="shop-card__time-value">Aug 25, 2023</div>
+													<div class="shop-card__time-value" data-link="/post">Aug 25, 2023</div>
 												</div>
 												<div class="shop-card__name">
 													Pro tips: How to improve your aim and reflexes in eSports
@@ -471,9 +471,9 @@
 											</div>
 											<div class="shop-card__info">
 												<div class="shop-card__time">
-													<div class="shop-card__time-type">NEW</div>
+													<div class="shop-card__time-type" data-link="/shop">NEW</div>
 													<div class="shop-card__time-sep"></div>
-													<div class="shop-card__time-value">Aug 25, 2023</div>
+													<div class="shop-card__time-value" data-link="/post">Aug 25, 2023</div>
 												</div>
 												<div class="shop-card__name">
 													Pro tips: How to improve your aim and reflexes in eSports
@@ -507,6 +507,7 @@
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
+		@@include('html/_preloader.htm',{})
 		@@include('html/_js.htm',{})
 	</body>
 </html>
