@@ -1352,6 +1352,10 @@ section:hover .title-decor--center::before {
   margin-bottom: 1rem;
 }
 
+.shop-card__sub-title:hover {
+  text-decoration: underline;
+}
+
 .shop-card__title {
   color: var(--color-grey-2);
   font-size: 1.375rem;
@@ -1391,6 +1395,11 @@ section:hover .title-decor--center::before {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: normal;
+}
+
+.shop-card__time-type:hover,
+.shop-card__time-value:hover {
+  text-decoration: underline;
 }
 
 .shop-card__time-sep {
