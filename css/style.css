@@ -988,10 +988,11 @@ section:hover .title-decor--center::before {
 }
 
 .no-webp .main-block{
-  background: url(../img/main-block/background.jpg) no-repeat; }
+  background-image: url(../img/main-block/background.jpg); }
 
 .main-block {
   position: relative;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -3223,6 +3224,6 @@ html.has-scroll-dragging {
 
 .webp .header__menu-mobile{ background: url(../img/header/background--mobile.webp) no-repeat; }
 
-.webp .main-block{ background: url(../img/main-block/background.webp) no-repeat; }
+.webp .main-block{ background-image: url(../img/main-block/background.webp); }
 
 .webp .channel__body{ background: url(../img/channel/background.webp) no-repeat; }
