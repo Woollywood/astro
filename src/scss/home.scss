@@ -19,7 +19,9 @@
 	@media (min-width: $mobile) {
 		height: 100vh;
 	}
-	background: url(@img/main-block/background.jpg) no-repeat;
+
+	background-image: url(@img/main-block/background.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
 
 	@include adaptiveValue('padding-bottom', 120, 45, 0, 1440, 375);
